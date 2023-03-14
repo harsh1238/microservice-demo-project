@@ -1,0 +1,62 @@
+package com.lcwd.userservice.serviceimpl;
+
+import java.util.List;
+import java.util.UUID;
+
+import com.lcwd.userservice.entity.User;
+import com.lcwd.userservice.exception.ResourceNotFoundException;
+import com.lcwd.userservice.repositories.UserRepository;
+import com.lcwd.userservice.service.UserService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import ch.qos.logback.classic.Logger;
+
+@Service
+public class UserServiceimpl implements UserService
+{
+    @Autowired
+    private UserRepository userRepository;
+    
+    @Autowired
+    private RestTemplate restTemplate;
+
+    
+    @Override
+    public User saveUser(User user) {
+
+        //Unique user id generating
+        String randomUUId=UUID.randomUUID().toString();
+        user.setUserid(randomUUId);
+       return  userRepository.save(user);
+    }
+
+    @Override
+    public List<User> getAlllUser() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public User getUserById(String id) {
+    	
+    	//getting user details by user id
+         User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Resource not found on the server"+ id));
+         //URL to get user details by user id http://localhost:9093/api/rating/ratingbyuserid/9c927518-f517-4f02-afe4-95f7d9cea170
+         //fetching rating of the above user from RATING-SERVICE
+         
+         
+         return user;
+    }
+
+    @Override
+    public User updateUser(User user, String id) {
+        return null;
+    }
+
+    @Override
+    public void deleteUser(String id) {
+
+    }
+}

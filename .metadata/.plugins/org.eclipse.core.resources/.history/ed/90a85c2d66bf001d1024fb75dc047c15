@@ -1,0 +1,46 @@
+package com.packages.text;
+
+public class Test {
+	
+	public static void main(String[] args) {
+		
+		String s1= "prathamesh patil";
+		
+		String[] s2= s1.split(" ");
+		
+		String reversesentance = " ";
+		
+		for(int i=0;i<s2.length-1;i++)
+		{
+			String word = s2[i];
+			
+			String reverseword= " ";
+			
+			if(word.length()>5)
+			{
+				for(int j=word.length()-1;j>0;j--)
+				{
+					reverseword = reverseword + word.charAt(j);
+				}
+			}
+			
+			reversesentance= reversesentance+ reverseword+ " ";
+		} 
+		System.out.println(s1);
+		 
+		System.out.println(reversesentance);
+//		for(int i=0;i<s2.length;i++)
+//		{
+//			String word = s2[i];
+//			
+//			String reverseword = " ";
+//			
+//			for(int j=word.length()-1;j>0;j--)
+//			{
+//				reverseword=reverseword+word.charAt(i);
+//				
+//			}
+//		}
+	}
+
+}

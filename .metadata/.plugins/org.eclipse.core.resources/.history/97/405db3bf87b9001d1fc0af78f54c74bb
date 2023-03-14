@@ -1,0 +1,5 @@
+package com.lcwd.ratingservice.controller;
+
+public class RatingController {
+
+}

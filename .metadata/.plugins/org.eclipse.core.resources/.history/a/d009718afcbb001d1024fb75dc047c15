@@ -1,0 +1,17 @@
+package com.lcwd.userservice.external.services;
+
+import com.lcwd.userservice.entity.Hotel;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import jakarta.ws.rs.Path;
+
+@FeignClient(name="HOTEL-SERVICE")
+public interface HotelService
+{
+	@GetMapping("/gethotelbyid/{id")
+	Hotel getHotel(@PathVariable Hotel id);
+
+}

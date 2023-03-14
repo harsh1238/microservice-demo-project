@@ -1,0 +1,5 @@
+package com.lcwd.ratingservice.serviceimpl;
+
+public class RatingServiceImpl {
+
+}

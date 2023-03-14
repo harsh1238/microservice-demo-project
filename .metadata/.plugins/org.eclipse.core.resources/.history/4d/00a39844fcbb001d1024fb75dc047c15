@@ -1,0 +1,5 @@
+package com.lcwd.userservice.external.services;
+
+public interface HotelService {
+
+}

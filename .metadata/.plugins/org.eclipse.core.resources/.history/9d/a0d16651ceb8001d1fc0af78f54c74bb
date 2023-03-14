@@ -1,0 +1,5 @@
+package com.lcwd.userservice.exception;
+
+public class GlobalExceptionHandler {
+
+}

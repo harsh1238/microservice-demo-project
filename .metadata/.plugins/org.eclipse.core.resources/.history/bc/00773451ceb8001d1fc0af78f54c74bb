@@ -1,0 +1,5 @@
+package com.lcwd.userservice.repositories;
+
+public class UserRepository {
+
+}
